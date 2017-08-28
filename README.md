@@ -25,8 +25,8 @@ const users = [
   { user: 'pebbles', age: 1,  active: true }
 ]
 
-findFirst(users, { user: 'fred }) // user[1]
-findAll(users, { active: true })  // [ user[0], users[2] ]
+findFirst(users, { user: 'fred' }) // user[1]
+findAll(users, { active: true })   // [ user[0], users[2] ]
 ```
 
 ## License
