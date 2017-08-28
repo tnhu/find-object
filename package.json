@@ -1,0 +1,24 @@
+{
+  "name": "find-object",
+  "version": "1.0.3",
+  "description": "Find object(s) in a JSON tree",
+  "main": "dist/find-object.js",
+  "types": "dist/find-object.d.ts",
+  "scripts": {
+    "clean": "rm -rf ./build ./dist",
+    "build": "npm run clean && tsc src/find-object.ts --outDir ./dist --sourceMap --target ES5 --lib ES2015 --declaration",
+    "dev": "tsc",
+    "test": "npm run dev && ava --verbose build/*.spec.js",
+    "format": "prettier --single-quote --no-semi --jsx-bracket-same-line --write src/*.{js,ts}",
+    "watch": "chokidar 'src/**/*.*' -c 'npm run test'"
+  },
+  "keywords": [],
+  "author": "Tan Nhu",
+  "license": "MIT",
+  "devDependencies": {
+    "ava": "^0.22.0",
+    "chokidar-cli": "^1.2.0",
+    "prettier": "^1.5.3",
+    "typescript": "^2.4.2"
+  }
+}
