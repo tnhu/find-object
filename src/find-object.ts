@@ -33,7 +33,10 @@ function findObject(
     return
   }
 
-  if (source && Object.keys(obj).every(key => obj[key] === source[key])) {
+  if (source && Object.keys(obj).every(key => {
+    const val = obj[key]
+    return source.hasOwnProperty(key) && (val === Object || val === source[key]) // if Object is the value, find all by key
+  })) {
     if (findAll && findAllResults) {
       findAllResults.push(source)
     } else {

@@ -13,12 +13,17 @@ function findObject(source, obj, findAll, findAllResults) {
                 return result;
             }
         }
-        return (root && findAllResults && findAllResults.length) ? findAllResults : undefined;
+        return root && findAllResults && findAllResults.length
+            ? findAllResults
+            : undefined;
     }
-    if (typeof (source) !== 'object') {
+    if (typeof source !== 'object') {
         return;
     }
-    if (source && Object.keys(obj).every(function (key) { return obj[key] === source[key]; })) {
+    if (source && Object.keys(obj).every(function (key) {
+        var val = obj[key];
+        return source.hasOwnProperty(key) && (val === Object || val === source[key]); // if Object is the value, find all by key
+    })) {
         if (findAll && findAllResults) {
             findAllResults.push(source);
         }
@@ -36,7 +41,7 @@ function findObject(source, obj, findAll, findAllResults) {
             }
         }
     }
-    return (findAll && root) ? findAllResults : undefined;
+    return findAll && root ? findAllResults : undefined;
 }
 function findFirst(dataSource, obj) {
     return findObject(dataSource, obj);

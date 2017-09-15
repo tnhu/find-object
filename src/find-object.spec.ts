@@ -45,3 +45,25 @@ test('findAll', async t => {
 
   t.deepEqual(findAll(users, { activeFooBar: true }), undefined)
 })
+
+test('finByKey', async t => {
+  const source = {
+    a: {
+      b: 1,
+      c: 2
+    },
+    d: {
+      b: 1,
+      c: 2,
+      d: 3
+    }
+  }
+
+  const results = findAll(source, { b: Object })
+
+  t.deepEqual(results, [{ b: 1, c: 2 }, { b: 1, c: 2, d: 3 }])
+
+  t.deepEqual(findAll(users, { active: Object }), users )
+
+  t.deepEqual(findAll(users, { activeFooBar: Object }), undefined)
+})
