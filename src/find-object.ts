@@ -24,9 +24,7 @@ function findObject(
       }
     }
 
-    return root && findAllResults && findAllResults.length
-      ? findAllResults
-      : undefined
+    return root ? findAllResults : undefined
   }
 
   if (typeof source !== 'object') {

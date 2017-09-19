@@ -43,7 +43,7 @@ test('findAll', async t => {
 
   t.deepEqual(findAll(users, { active: true }), [users[0], users[2]])
 
-  t.deepEqual(findAll(users, { activeFooBar: true }), undefined)
+  t.deepEqual(findAll(users, { activeFooBar: true }), [])
 })
 
 test('find first by key', async t => {
@@ -85,5 +85,5 @@ test('find all by key', async t => {
 
   t.deepEqual(findAll(users, { active: Object }), users )
 
-  t.deepEqual(findAll(users, { activeFooBar: Object }), undefined)
+  t.deepEqual(findAll(users, { activeFooBar: Object }), [])
 })

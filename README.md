@@ -27,6 +27,8 @@ const users = [
 
 findFirst(users, { user: 'fred' }) // user[1]
 findAll(users, { active: true })   // [ user[0], users[2] ]
+findAll(users, { unknown: true })  // []
+findAll(users, { age: Object })    // find all objects that have age key, returns shallow copy of users
 ```
 
 ## License
